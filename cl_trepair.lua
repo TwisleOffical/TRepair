@@ -8,6 +8,13 @@ local shops = { -- Template {['x'] = , ['y'] = , ['z'] = },
     {['x'] = -207.978, ['y'] = -1309.64, ['z'] = -31.2939},
 }
 
+function Noti(num1, num2)
+    SetNotificationTextEntry("TWOSTRINGS")
+    AddTextComponentSubstringPlayerName(num1)
+    AddTextComponentSubstringPlayerName(num2)
+    EndTextCommandThefeedPostTicker(true, false) -- dont change
+end
+
 RegisterCommand("fix", function() -- Change "Fix" If you want a diffrent command 
 		
 	local ped = PlayerPedId()
@@ -22,10 +29,8 @@ RegisterCommand("fix", function() -- Change "Fix" If you want a diffrent command
                 SetVehicleFixed(veh)
                 SetVehicleDeformationFixed(veh)
                 SetVehicleUndriveable(veh, false)
-		-- This Is For A Text Pop Up On The Top Left	
-                    SetTextComponentFormat("STRING")
-                    AddTextComponentString("~g~Vehicle Fully Fixed!")
-                    DisplayHelpTextFromStringLabel(0, 0, 1, -1)
+		-- This Is For A Text Pop Up On The Top Left
+                    Noti("~g~Vehicle Fully Fixed!") 
                     -- Just A Console Print (Can Remove If You Want)
                     print'full Fixed'
 		-- Make Sure Ped Is Outside Of The Radius Of The Mech Shop
@@ -38,9 +43,7 @@ RegisterCommand("fix", function() -- Change "Fix" If you want a diffrent command
                 SetVehicleEngineHealth(veh, 700)
                 SetVehicleUndriveable(veh, false)
 		-- This Is For A Text Pop Up On The Top Left	
-                    SetTextComponentFormat("STRING")
-                    AddTextComponentString("~g~Vehicle Partly Fixed To Get A Mechanic!")
-                    DisplayHelpTextFromStringLabel(0, 0, 1, -1)
+                    Noti("~g~Vehicle Partly Fixed To Get A Mechanic!")
 		-- Just A Console Print (Can Remove If You Want)
                     print'half fixed'
 	        end
