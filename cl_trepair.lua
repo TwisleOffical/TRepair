@@ -8,13 +8,6 @@ local shops = { -- Template {['x'] = , ['y'] = , ['z'] = },
     {['x'] = -207.978, ['y'] = -1309.64, ['z'] = -31.2939},
 }
 
-function Noti(num1, num2)
-    SetNotificationTextEntry("TWOSTRINGS")
-    AddTextComponentSubstringPlayerName(num1)
-    AddTextComponentSubstringPlayerName(num2)
-    EndTextCommandThefeedPostTicker(true, false) -- dont change
-end
-
 RegisterCommand("fix", function() -- Change "Fix" If you want a diffrent command 
 		
 	local ped = PlayerPedId()
@@ -52,3 +45,11 @@ RegisterCommand("fix", function() -- Change "Fix" If you want a diffrent command
 end
 end
 end)
+
+function Noti(num1, num2)
+    SetNotificationTextEntry("TWOSTRINGS")
+    AddTextComponentSubstringPlayerName(num1)
+    AddTextComponentSubstringPlayerName(num2)
+    EndTextCommandThefeedPostTicker(true, false) -- dont change
+end
+
